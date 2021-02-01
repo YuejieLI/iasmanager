@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="CatalogService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="EntityContainer" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Tenants" EntityType="CatalogService.Tenants"/>
+            </EntityContainer>
+            <EntityType Name="Tenants">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="createdAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="createdBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="modifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+                <Property Name="modifiedBy" Type="Edm.String" MaxLength="255"/>
+                <Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="iasUrl" Type="Edm.String" MaxLength="100"/>
+                <Property Name="licenseType" Type="Edm.String" MaxLength="100"/>
+                <Property Name="tenantId" Type="Edm.String" MaxLength="100"/>
+                <Property Name="reservedFor" Type="Edm.String" MaxLength="100"/>
+                <Property Name="reservedBy" Type="Edm.String" MaxLength="100"/>
+                <Property Name="isDefault" Type="Edm.String" MaxLength="100"/>
+                <Property Name="isAdditional" Type="Edm.String" MaxLength="100"/>
+                <Property Name="requestUrl" Type="Edm.String" MaxLength="100"/>
+                <Property Name="isActive" Type="Edm.String" MaxLength="100"/>
+                <Property Name="customerId" Type="Edm.String" MaxLength="100"/>
+                <Property Name="landscapeType" Type="Edm.String" MaxLength="100"/>
+                <Property Name="iasAdmin" Type="Edm.String" MaxLength="100"/>
+                <Property Name="tenantAdmin" Type="Edm.String" MaxLength="100"/>
+                <Property Name="subaccountId" Type="Edm.String" MaxLength="100"/>
+            </EntityType>
+            <Annotations Target="CatalogService.Tenants/createdAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Created On"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/createdBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Created By"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="Core.Immutable" Bool="true"/>
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/modifiedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Changed On"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/modifiedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="Changed By"/>
+                <Annotation Term="Core.Computed" Bool="true"/>
+                <Annotation Term="Core.Description" String="User's unique ID"/>
+                <Annotation Term="UI.HiddenFilter" Bool="true"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/ID" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ID"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/iasUrl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="IASURL"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/licenseType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="LicenseType"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/tenantId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="TenantID"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/reservedFor" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ReservedFor"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/reservedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="ReservedBy"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/isDefault" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="IsDefault"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/isAdditional" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="IsAdditional"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/requestUrl" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="RequestUrl"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/isActive" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="IsActive"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/customerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="CustomerId"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/landscapeType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="LandscapeType"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/iasAdmin" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="IasAdmin"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/tenantAdmin" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="TenantAdmin"/>
+            </Annotations>
+            <Annotations Target="CatalogService.Tenants/subaccountId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.Label" String="SubaccountId"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,88 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "iasmanager",
+        "type": "application",
+        "title": "IAS Manager", 
+        "description": "IASManager",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "CatalogService": {
+                "uri": "/catalog/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0"
+                }
+            }
+        }
+    },
+    "sap.ui5": {
+        "dependencies": {
+            "libs": {
+                "sap.fe.templates": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "CatalogService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupProperties": {
+                        "default": {
+                            "submit": "Auto"
+                        }
+                    }
+                }
+            }
+        },
+        "routing": {
+            "routes": [{
+                    "pattern": "",
+                    "name": "TenantsList",
+                    "target": "TenantsList"
+                },
+                {
+                    "pattern": "Tenants({key})",
+                    "name": "TenantsDetails",
+                    "target": "TenantsDetails"
+                }
+            ],
+            "targets": {
+                "TenantsList": {
+                    "type": "Component",
+                    "id": "TenantsList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Tenants",
+                            "navigation": {
+                                "Tenants": {
+                                    "detail": {
+                                        "route": "TenantsDetails"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "TenantsDetails": {
+                    "type": "Component",
+                    "id": "TenantsDetails",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Tenants"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
